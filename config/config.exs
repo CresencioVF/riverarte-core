@@ -10,20 +10,29 @@
 use Mix.Config
 
 # Configure Mix tasks and generators
-config :riverarte,
-  ecto_repos: [Riverarte.Repo]
+
+config :db,
+  ecto_repos: [DB.Repo],
+  namespace: DB
 
 config :riverarte_web,
-  ecto_repos: [Riverarte.Repo],
-  generators: [context_app: :riverarte]
+  ecto_repos: [DB.Repo],
+  generators: [context_app: :db]
 
 # Configures the endpoint
 config :riverarte_web, RiverarteWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "hu/aX1hfe8k7uWI0j+FAgjEVLP4P7tny1+Y6TRRJ/ZsCMC/JRmUWMOUnfIEuXsdk",
   render_errors: [view: RiverarteWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Riverarte.PubSub,
+  pubsub_server: DB.PubSub,
   live_view: [signing_salt: "p87Nn2HW"]
+
+config :api, ApiWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "KUqH7uZ3EDCxYaPnBhjFLkksTtBdZiOMdhc0syAW2Ibr4xnyYbzXhZdNy5q0IoZf",
+  render_errors: [view: ApiWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: DB.PubSub,
+  live_view: [signing_salt: "54nOQwbb"]
 
 # Configures Elixir's Logger
 config :logger, :console,

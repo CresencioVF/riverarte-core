@@ -1,4 +1,4 @@
-defmodule RiverarteWeb.Telemetry do
+defmodule ApiWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -30,13 +30,6 @@ defmodule RiverarteWeb.Telemetry do
         unit: {:native, :millisecond}
       ),
 
-      # Database Metrics
-      summary("db.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("db.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("db.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("db.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("db.repo.query.idle_time", unit: {:native, :millisecond}),
-
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
       summary("vm.total_run_queue_lengths.total"),
@@ -49,7 +42,7 @@ defmodule RiverarteWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {RiverarteWeb, :count_users, []}
+      # {ApiWeb, :count_users, []}
     ]
   end
 end

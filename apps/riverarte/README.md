@@ -1,3 +1,0 @@
-# Riverarte
-
-**TODO: Add description**

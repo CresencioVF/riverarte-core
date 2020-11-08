@@ -1,9 +1,9 @@
-defmodule RiverarteWeb.MixProject do
+defmodule Api.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :riverarte_web,
+      app: :api,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -23,7 +23,7 @@ defmodule RiverarteWeb.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {RiverarteWeb.Application, []},
+      mod: {Api.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -38,26 +38,24 @@ defmodule RiverarteWeb.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.5.6"},
-      {:phoenix_ecto, "~> 4.0"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.3 or ~> 0.2.9"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
-      {:db, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
+  # For example, to install project dependencies and perform other setup tasks, run:
+  #
+  #     $ mix setup
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "cmd npm install --prefix assets"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      setup: ["deps.get"]
     ]
   end
 end

@@ -1,9 +1,9 @@
 use Mix.Config
 
 # Configure your database
-config :riverarte, Riverarte.Repo,
-  username: "postgres",
-  password: "postgres",
+config :db, DB.Repo,
+  username: "steeve",
+  password: "Mishibebe69",
   database: "riverarte_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
@@ -64,6 +64,14 @@ config :riverarte_web, RiverarteWeb.Endpoint,
       ~r"lib/riverarte_web/templates/.*(eex)$"
     ]
   ]
+
+config :api, ApiWeb.Endpoint,
+  http: [port: 4001],
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  watchers: []
+
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

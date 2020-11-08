@@ -11,7 +11,7 @@ database_url =
     For example: ecto://USER:PASS@HOST/DATABASE
     """
 
-config :riverarte, Riverarte.Repo,
+config :db, DB.Repo,
   # ssl: true,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
@@ -26,6 +26,13 @@ secret_key_base =
 config :riverarte_web, RiverarteWeb.Endpoint,
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
+    transport_options: [socket_opts: [:inet6]]
+  ],
+  secret_key_base: secret_key_base
+
+config :api, ApiWeb.Endpoint,
+  http: [
+    port: String.to_integer(System.get_env("PORT") || "4001"),
     transport_options: [socket_opts: [:inet6]]
   ],
   secret_key_base: secret_key_base
