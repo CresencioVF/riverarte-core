@@ -34,6 +34,13 @@ config :api, ApiWeb.Endpoint,
   pubsub_server: DB.PubSub,
   live_view: [signing_salt: "54nOQwbb"]
 
+config :admin, AdminWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "Po2+qRVtG7hRsMQo+NVKwYtSsYboD0QDxfIpoifh6oPcQH/U/3CI0msJ9frQtmHz",
+  render_errors: [view: AdminWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: Admin.PubSub,
+  live_view: [signing_salt: "vaTUli9w"]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

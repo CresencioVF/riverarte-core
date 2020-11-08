@@ -15,11 +15,16 @@ config :db, DB.Repo,
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :riverarte_web, RiverarteWeb.Endpoint,
-  http: [port: 4006],
+  http: [port: 4005],
   server: false
 
 config :api, ApiWeb.Endpoint,
-  http: [port: 4005],
+  http: [port: 4006],
   server: false
+
+config :admin, AdminWeb.Endpoint,
+  http: [port: 4007],
+  server: false
+
 # Print only warnings and errors during test
 config :logger, level: :warn

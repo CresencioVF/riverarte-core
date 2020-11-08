@@ -37,6 +37,13 @@ config :api, ApiWeb.Endpoint,
   ],
   secret_key_base: secret_key_base
 
+config :admin, AdminWeb.Endpoint,
+  http: [
+    port: String.to_integer(System.get_env("PORT") || "4002"),
+    transport_options: [socket_opts: [:inet6]]
+  ],
+  secret_key_base: secret_key_base
+
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix

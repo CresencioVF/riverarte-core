@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :db, DB.Repo,
-  username: "steeve",
-  password: "Mishibebe69",
+  username: "postgres",
+  password: "postgres",
   database: "riverarte_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
@@ -72,6 +72,12 @@ config :api, ApiWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :admin, AdminWeb.Endpoint,
+  http: [port: 4002],
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  watchers: []
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
